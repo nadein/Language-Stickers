@@ -13,6 +13,7 @@
 		FAFC1D9C25FBBBE7002619CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFC1D9A25FBBBE7002619CC /* Main.storyboard */; };
 		FAFC1D9E25FBBBEB002619CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFC1D9D25FBBBEB002619CC /* Assets.xcassets */; };
 		FAFC1DA125FBBBEB002619CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFC1D9F25FBBBEB002619CC /* LaunchScreen.storyboard */; };
+		FAFC1DAB25FFDC61002619CC /* CaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC1DAA25FFDC61002619CC /* CaptureSessionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FAFC1D9D25FBBBEB002619CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAFC1DA025FBBBEB002619CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAFC1DA225FBBBEB002619CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAFC1DAA25FFDC61002619CC /* CaptureSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				FAFC1D9425FBBBE7002619CC /* AppDelegate.swift */,
 				FAFC1D9625FBBBE7002619CC /* SceneDelegate.swift */,
 				FAFC1D9825FBBBE7002619CC /* ViewController.swift */,
+				FAFC1DAA25FFDC61002619CC /* CaptureSessionManager.swift */,
 				FAFC1D9A25FBBBE7002619CC /* Main.storyboard */,
 				FAFC1D9D25FBBBEB002619CC /* Assets.xcassets */,
 				FAFC1D9F25FBBBEB002619CC /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAFC1D9925FBBBE7002619CC /* ViewController.swift in Sources */,
+				FAFC1DAB25FFDC61002619CC /* CaptureSessionManager.swift in Sources */,
 				FAFC1D9525FBBBE7002619CC /* AppDelegate.swift in Sources */,
 				FAFC1D9725FBBBE7002619CC /* SceneDelegate.swift in Sources */,
 			);

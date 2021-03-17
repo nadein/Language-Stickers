@@ -10,11 +10,14 @@ import UIKit
 class ViewController: UIViewController {
   
   var captureSessionManager: CaptureSessionManager!
+  var visionManager: VisionManager!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    captureSessionManager = CaptureSessionManager(previewView: view)
-    captureSessionManager.setupCaptureSession()
+    captureSessionManager = CaptureSessionManager.shared
+    visionManager = VisionManager.shared
+    captureSessionManager.setupCaptureSessionWith(previewView: view, sampleBufferDelegate: visionManager)
+    visionManager.setupVisionSessionWith(rootLayer: view.layer)
     captureSessionManager.startCaptureSession()
   }
 }

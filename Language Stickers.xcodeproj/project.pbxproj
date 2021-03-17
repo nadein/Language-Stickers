@@ -14,6 +14,8 @@
 		FAFC1D9E25FBBBEB002619CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFC1D9D25FBBBEB002619CC /* Assets.xcassets */; };
 		FAFC1DA125FBBBEB002619CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFC1D9F25FBBBEB002619CC /* LaunchScreen.storyboard */; };
 		FAFC1DAB25FFDC61002619CC /* CaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC1DAA25FFDC61002619CC /* CaptureSessionManager.swift */; };
+		FAFC1DB0260294FD002619CC /* VisionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC1DAF260294FD002619CC /* VisionManager.swift */; };
+		FAFC1DB326029EC6002619CC /* ObjectDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FAFC1DB226029EC6002619CC /* ObjectDetector.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		FAFC1DA025FBBBEB002619CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAFC1DA225FBBBEB002619CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAFC1DAA25FFDC61002619CC /* CaptureSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSessionManager.swift; sourceTree = "<group>"; };
+		FAFC1DAF260294FD002619CC /* VisionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionManager.swift; sourceTree = "<group>"; };
+		FAFC1DB226029EC6002619CC /* ObjectDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ObjectDetector.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				FAFC1D9625FBBBE7002619CC /* SceneDelegate.swift */,
 				FAFC1D9825FBBBE7002619CC /* ViewController.swift */,
 				FAFC1DAA25FFDC61002619CC /* CaptureSessionManager.swift */,
+				FAFC1DAF260294FD002619CC /* VisionManager.swift */,
+				FAFC1DB226029EC6002619CC /* ObjectDetector.mlmodel */,
 				FAFC1D9A25FBBBE7002619CC /* Main.storyboard */,
 				FAFC1D9D25FBBBEB002619CC /* Assets.xcassets */,
 				FAFC1D9F25FBBBEB002619CC /* LaunchScreen.storyboard */,
@@ -143,6 +149,8 @@
 				FAFC1D9925FBBBE7002619CC /* ViewController.swift in Sources */,
 				FAFC1DAB25FFDC61002619CC /* CaptureSessionManager.swift in Sources */,
 				FAFC1D9525FBBBE7002619CC /* AppDelegate.swift in Sources */,
+				FAFC1DB326029EC6002619CC /* ObjectDetector.mlmodel in Sources */,
+				FAFC1DB0260294FD002619CC /* VisionManager.swift in Sources */,
 				FAFC1D9725FBBBE7002619CC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

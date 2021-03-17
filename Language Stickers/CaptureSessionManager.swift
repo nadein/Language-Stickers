@@ -10,11 +10,14 @@ import AVFoundation
 
 class CaptureSessionManager: NSObject {
   
+  // MARK: - Static
+  static let shared = CaptureSessionManager()
+  
   // MARK: - Properties
+  public var bufferSize: CGSize = .zero
+  public weak var sampleBufferDelegate: AVCaptureVideoDataOutputSampleBufferDelegate?
   
-  private weak var previewView: UIView!
-  
-  private var bufferSize: CGSize = .zero
+  private weak var previewView: UIView?
   private var rootLayer: CALayer! = nil
   private var previewLayer: AVCaptureVideoPreviewLayer! = nil
   
@@ -24,12 +27,13 @@ class CaptureSessionManager: NSObject {
   
   // MARK: - Init
   
-  init(previewView: UIView) {
-    super.init()
-    self.previewView = previewView
-  }
+  private override init() {}
   
-  func setupCaptureSession() {
+  // MARK: - Setup
+  
+  func setupCaptureSessionWith(previewView: UIView, sampleBufferDelegate: AVCaptureVideoDataOutputSampleBufferDelegate) {
+    self.previewView = previewView
+    self.sampleBufferDelegate = sampleBufferDelegate
     var deviceInput: AVCaptureDeviceInput!
     
     // Select a video device, make an input
@@ -56,7 +60,7 @@ class CaptureSessionManager: NSObject {
       // Add a video data output
       videoDataOutput.alwaysDiscardsLateVideoFrames = true
       videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
-      videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
+      videoDataOutput.setSampleBufferDelegate(self.sampleBufferDelegate, queue: videoDataOutputQueue)
     } else {
       print("Could not add video data output to the session")
       session.commitConfiguration()
@@ -82,6 +86,8 @@ class CaptureSessionManager: NSObject {
     rootLayer.addSublayer(previewLayer)
   }
   
+  // MARK: - Session control
+  
   func startCaptureSession() {
     session.startRunning()
   }
@@ -89,30 +95,5 @@ class CaptureSessionManager: NSObject {
   func teardownAVCapture() {
     previewLayer.removeFromSuperlayer()
     previewLayer = nil
-  }
-  
-  public func exifOrientationFromDeviceOrientation() -> CGImagePropertyOrientation {
-    let curDeviceOrientation = UIDevice.current.orientation
-    let exifOrientation: CGImagePropertyOrientation
-    
-    switch curDeviceOrientation {
-    case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
-      exifOrientation = .left
-    case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
-      exifOrientation = .upMirrored
-    case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
-      exifOrientation = .down
-    case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
-      exifOrientation = .up
-    default:
-      exifOrientation = .up
-    }
-    return exifOrientation
-  }
-}
-
-extension CaptureSessionManager: AVCaptureVideoDataOutputSampleBufferDelegate {
-  func captureOutput(_ captureOutput: AVCaptureOutput, didDrop didDropSampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-    // print("frame dropped")
   }
 }
